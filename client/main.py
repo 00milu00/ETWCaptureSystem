@@ -390,12 +390,8 @@ class kernelMonitorClient:
             lQuoteIndex = infos[4].index('\'')
             rQuoteIndex = infos[4].rindex('\'')
             ips = infos[4][lQuoteIndex+1:rQuoteIndex].split(' -> ')
-            if eventName not in ['Accept', 'Recv', 'RecvIPV6']:
-                srcIpInfo = ips[0].split(':')
-                dstIpInfo = ips[1].split(':')
-            else:
-                srcIpInfo = ips[1].split(':')
-                dstIpInfo = ips[0].split(':')
+            srcIpInfo = ips[0].split(':')
+            dstIpInfo = ips[1].split(':')
             if len(srcIpInfo) == 2:
                 srcIp = srcIpInfo[0]
                 srcPort = srcIpInfo[1]
